@@ -13,8 +13,14 @@ import jakarta.annotation.PostConstruct;
 public class RunRepository {
     private List<Run> runs = new ArrayList<>();
 
+    // Return all runs
     List<Run> findAll() {
         return runs;
+    }
+
+    // Return specific item
+    Run findById(Integer id) {
+        return runs.stream().filter(run -> run.id() == id).findFirst().get();
     }
 
     @PostConstruct
